@@ -3,7 +3,7 @@ import math
 
 #1. Parsing the System of Equations
 def parse_equation(equation):
-    # 2x + 3y - z = 5     =>     2x +3y -z + 0 = 5
+    # 2x + 3y - z = 5     =>     2x +3y -z = 5
     equation = equation.replace("+ ", "+").replace("- ", "-")  
     
     lhs, rhs = equation.split('=') 
@@ -67,19 +67,15 @@ def get_submatrix(A, row, col):
 def determinant(A):
     n = len(A)
     
-    # 1x1 matrix
-    if n == 1:
+    if n == 1:  # 1x1 matrix
         return A[0][0]
     
-    # 2x2 matrix
-    if n == 2:
+    if n == 2:  # 2x2 matrix
         return A[0][0] * A[1][1] - A[0][1] * A[1][0]
     
     det = 0
     for col in range(n):
-        # submatrix by eliminating the first row and the current column
-        submatrix = get_submatrix(A, 0, col)
-        
+        submatrix = get_submatrix(A, 0, col)    # submatrix by eliminating the first row and the current column
         det += ((-1) ** col) * A[0][col] * determinant(submatrix)
     
     return det
@@ -88,7 +84,7 @@ print("\n\n2. Matrix and Vector Operations")
 print("\n2.1 Determinant")
 print("Determinant of matrix A:", determinant(A))
 
-#2.2 Trace
+#2.2 Trace (sum of the diagonal elements)
 def trace(A):
     return sum([A[i][i] for i in range(len(A))])
 
@@ -141,16 +137,17 @@ def cramer_rule(A, B):
     
     X = []
     for i in range(n):
-        Ai = [row[:] for row in A]
-        for j in range(n):
+        Ai = [row[:] for row in A]  
+
+        for j in range(n):  # replace the j-th column of matrix A with vector B
             Ai[j][i] = B[j]
-        
+
         det_Ai = determinant(Ai)
         X.append(det_Ai / det_A)
     
     return X
 
-print("\n\n3. Solving using Cramer’s Rule")
+print("\n\n3. Solving using Cramer's Rule")
 X = cramer_rule(A, B)
 print("Solution:")
 print(X)
