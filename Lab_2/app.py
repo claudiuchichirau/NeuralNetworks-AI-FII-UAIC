@@ -14,8 +14,8 @@ def download_mnist(is_train: bool):
     mnist_data = []
     mnist_labels = []
     for image, label in dataset:
-        mnist_data. append(image)
-        mnist_labels. append(label)
+        mnist_data.append(image)
+        mnist_labels.append(label)
 
     mnist_data = np.array(mnist_data)
     mnist_labels = np.array(mnist_labels)
@@ -93,6 +93,8 @@ def train(X_train, Y_train, X_test, Y_test, W, b, epochs, batch_size, learning_r
 
             A = forward_propagation(X_batch, W, b)
 
+            loss = compute_loss(Y_batch, A)
+
             W, b = backward_propagation(X_batch, Y_batch, A, W, b, learning_rate)
 
         # training accuracy
@@ -107,7 +109,7 @@ def train(X_train, Y_train, X_test, Y_test, W, b, epochs, batch_size, learning_r
         labels_test = np.argmax(Y_test, axis=1)
         accuracy_test = np.mean(predictions_test == labels_test)
 
-        print(f"Epoch {epoch + 1}/{epochs} - Training Accuracy: {accuracy_train:.4f} - Test Accuracy: {accuracy_test:.4f}")
+        print(f"Epoch {epoch + 1}/{epochs} - Training Accuracy: {accuracy_train:.4f} - Test Accuracy: {accuracy_test:.4f} - Loss: {loss:.4f}")
     
     end_time = time.time()  
     total_time = end_time - start_time  
