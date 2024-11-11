@@ -4,3 +4,17 @@
 /Lab_2/RN_env/Scripts
 Lab_2/RN_env/share/man/man1/isympy.1
 Lab_2/RN_env/pyvenv.cfg
+Lab_3/data/MNIST/raw/t10k-images-idx3-ubyte
+*.gz
+Lab_3/data/MNIST/raw/t10k-labels-idx1-ubyte
+Lab_3/data/MNIST/raw/train-images-idx3-ubyte
+Lab_3/data/MNIST/raw/train-labels-idx1-ubyte
+RN_env/Lib/site-packages/__pycache__/isympy.cpython-311.pyc
+RN_env/Lib/site-packages/__pycache__/threadpoolctl.cpython-311.pyc
+*.pyc
+RN_env/Lib/site-packages/_distutils_hack/__init__.py
+RN_env/Lib/site-packages/filelock/_error.py
+RN_env/Lib/site-packages/filelock/_api.py
+/RN_env/Lib/site-packages
+/RN_env/Scripts
+/RN_env
